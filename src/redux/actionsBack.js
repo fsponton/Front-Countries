@@ -10,7 +10,7 @@ export const CREATE_ACTIVITY = "CREATE_ACTIVITY";
 export const getAllCountries = () => {
     return function (dispatch) {
         return axios
-            .get(`http://localhost:3002/countries`)
+            .get(`http://api-countries-np9g.onrender.com/countries`)
             .then((response) => {
                 dispatch({
                     type: GET_ALL_COUNTRIES,
@@ -26,7 +26,7 @@ export const getAllCountries = () => {
 export const getCountry = (name) => {
     return function (dispatch) {
         return axios
-            .get(`http://localhost:3002/countries?name=${name}`)
+            .get(`http://api-countries-np9g.onrender.com/countries?name=${name}`)
             .then((response) => {
                 dispatch({ type: GET_COUNTRY_BY_NAME, payload: response.data })
             })
@@ -39,7 +39,7 @@ export const getCountry = (name) => {
 
 export const getCountriesBack = (name) => {
     return axios
-        .get(`http://localhost:3002/countries?name=${name}`)
+        .get(`http://api-countries-np9g.onrender.com/countries?name=${name}`)
         .then((response) => {
             return response.data
         })
@@ -52,7 +52,7 @@ export const getCountriesBack = (name) => {
 export const getCountryById = (idCountry) => {
     return function (dispatch) {
         return axios
-            .get(`http://localhost:3002/countries/${idCountry}`)
+            .get(`http://api-countries-np9g.onrender.com/countries/${idCountry}`)
             .then((response) => {
 
                 dispatch({ type: GET_COUNTRY_BY_ID, payload: response.data })
@@ -68,7 +68,7 @@ export const getCountryById = (idCountry) => {
 export const getActivities = () => {
     return function (dispatch) {
         return axios
-            .get(`http://localhost:3002/activities`)
+            .get(`http://api-countries-np9g.onrender.com/activities`)
             .then((response) => {
                 dispatch({ type: GET_ACTIVITIES, payload: response.data })
             })
@@ -78,7 +78,7 @@ export const getActivities = () => {
 export const createActivity = ({ name, difficulty, duration, season, idCountries, review }) => {
     return function (dispatch) {
         return axios
-            .post(`http://localhost:3002/activities`, {
+            .post(`http://api-countries-np9g.onrender.com/activities`, {
                 name,
                 difficulty: parseInt(difficulty),
                 duration: parseInt(duration),
@@ -107,7 +107,7 @@ export const createActivity = ({ name, difficulty, duration, season, idCountries
 }
 
 export function deleteActivity(idCountry, id, name) {
-    return axios.delete(`http://localhost:3002/activities/${idCountry}/${id}`)
+    return axios.delete(`http://api-countries-np9g.onrender.com/activities/${idCountry}/${id}`)
         .then((response) => {
             if (response.data) {
                 swal(`Activity delete`, `"${name}"`, "success")
