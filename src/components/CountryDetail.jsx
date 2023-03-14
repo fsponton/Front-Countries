@@ -76,8 +76,8 @@ class CountryDetail extends React.Component {
 
 
     clean = () => {
-        cleanFilters()
-        changeFlagReset(true)
+        this.props.cleanFilters()
+        this.props.changeFlagReset(true)
     }
 
 
